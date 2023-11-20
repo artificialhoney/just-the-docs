@@ -356,20 +356,31 @@ function searchLoaded(index, docs) {
         resultPreviews.classList.add('search-result-previews');
         resultLink.appendChild(resultPreviews);
 
-        var content = doc.content;
-        for (var j = 0; j < Math.min(previewPositions.length, {{ site.search.previews | default: 3 }}); j++) {
-          var position = previewPositions[j];
-
-          var resultPreview = document.createElement('div');
-          resultPreview.classList.add('search-result-preview');
-          resultPreviews.appendChild(resultPreview);
-
-          if (position.ellipsesBefore) {
-            resultPreview.appendChild(document.createTextNode('... '));
+        if (doc.code) {
+          var content = doc.code;
+          for (var j = 0; j < Math.min(previewPositions.length, {{ site.search.previews | default: 3 }}); j++) {
+              var resultPreview = document.createElement('div');
+              resultPreview.classList.add('search-result-preview');
+              resultPreviews.appendChild(resultPreview);
+    
+              resultPreview.innerHTML = content;
           }
-          addHighlightedText(resultPreview, content, position.previewStart, position.previewEnd, position.highlight);
-          if (position.ellipsesAfter) {
-            resultPreview.appendChild(document.createTextNode(' ...'));
+        } else {
+          var content = doc.content;
+          for (var j = 0; j < Math.min(previewPositions.length, {{ site.search.previews | default: 3 }}); j++) {
+            var position = previewPositions[j];
+
+            var resultPreview = document.createElement('div');
+            resultPreview.classList.add('search-result-preview');
+            resultPreviews.appendChild(resultPreview);
+
+            if (position.ellipsesBefore) {
+              resultPreview.appendChild(document.createTextNode('... '));
+            }
+            addHighlightedText(resultPreview, content, position.previewStart, position.previewEnd, position.highlight);
+            if (position.ellipsesAfter) {
+              resultPreview.appendChild(document.createTextNode(' ...'));
+            }
           }
         }
       }
