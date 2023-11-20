@@ -329,7 +329,10 @@ function searchLoaded(index, docs) {
 
       if (doc.code) {
         var content = doc.code;
-        for (var j = 0; j < Math.min(previewPositions.length, {{ site.search.previews | default: 3 }}); j++) {
+        var resultPreviews = document.createElement('div');
+        resultPreviews.classList.add('search-result-previews');
+        resultLink.appendChild(resultPreviews);
+        for (var j = 0; j < Math.min(1, {{ site.search.previews | default: 3 }}); j++) {
             var resultPreview = document.createElement('div');
             resultPreview.classList.add('search-result-preview');
             resultPreviews.appendChild(resultPreview);
