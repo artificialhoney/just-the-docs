@@ -35,6 +35,12 @@ $border-color: $color-border;
     justify-content: space-between;
 }
 
+.print-button-container {
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+
 .print-button {
     background: none;
     outline: none;
