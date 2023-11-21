@@ -7,6 +7,12 @@
     {% include icons/document.html %}
     {% include icons/search.html %}
   {% endif %}
+  {% if site.enabled_print_button != false %}
+    {% include icons/print.html %}
+  {% endif %}
+  {% if site.enable_github_button != false %}
+    {% include icons/github.html %}
+  {% endif %}
   {% if site.enable_copy_code_button != false %}
     {% include icons/code_copy.html %}
   {% endif %}

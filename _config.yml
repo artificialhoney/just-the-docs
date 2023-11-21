@@ -81,6 +81,8 @@ search:
 
 # For copy button on code
 enable_copy_code_button: true
+enable_print_button: true
+enable_github_button: true
 
 # By default, consuming the theme as a gem leaves mermaid disabled; it is opt-in
 mermaid:
@@ -100,9 +102,7 @@ mermaid:
 heading_anchors: true
 
 # Aux links for the upper right navigation
-aux_links:
-   "GitHub":
-     - "https://github.com/just-the-docs/just-the-docs"
+aux_links: {}
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: false

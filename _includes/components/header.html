@@ -5,6 +5,16 @@
     <div></div>
   {% endif %}
   {% include header_custom.html %}
+  {% if site.enable_print_button %}
+  <button class="print-button site-button" onclick="window.print()">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-print"></use></svg>
+  </button>
+  {% endif %}
+  {% if site.gh_edit_repository && site.enable_github_button %}
+  <a class="site-button" href="{{ site.gh_edit_repository }}" target="_blank" rel="noopener noreferrer">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-github"></use></svg>
+  </a>
+  {% endif %}
   {% if site.aux_links %}
     {% include components/aux_nav.html %}
   {% endif %}
